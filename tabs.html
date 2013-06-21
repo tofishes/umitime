@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tabs demo</title>
+	<style>
+	p, ul, li {margin:0;padding:0;}
+	.tabs-wrap {width:660px;}
+	.tabs-title {zoom:1;overflow: hidden;}
+	.tabs-title li{float:left;list-style:none;width:130px;height:35px;background:#1272af;cursor:pointer;
+			border-right:2px solid #79AFD3;font:700 14px/35px arial;color:#fff;text-align:center}
+	.tabs-title .end {border:0 none;}
+	.tabs-title .active {background: #b73333;border-color:#b73333;}
+	.tab-con {display:none;padding:15px;border:1px solid #f8f8f8;}
+	.tab-con-show {display: block;}
+	</style>
+</head>
+<body>
+	<div class="tabs-wrap">
+		<ul id="tabs-title" class="tabs-title">
+			<li id="tab1" class="active"><strong>Product Details</strong></li>
+			<li id="tab2"><strong>Payment</strong></li>
+			<li id="tab3"><strong>Shipment</strong></li>
+			<li id="tab4"><strong>Sales Tax</strong></li>
+			<li id="tab5" class="end"><strong>Return Policy</strong></li>
+		</ul>
+		<div id="tab_con_1" class="tab-con tab-con-show">
+			<p>here is Product Details</p>
+		</div>
+		<div id="tab_con_2" class="tab-con">
+			<p>here is Payment</p>
+		</div>
+		<div id="tab_con_3" class="tab-con">
+			<p>here is Shipment</p>
+		</div>
+		<div id="tab_con_4" class="tab-con">
+			<p>here is Sales Tax</p>
+		</div>
+		<div id="tab_con_5" class="tab-con">
+			<p>here is Return Policy</p>
+		</div>
+	</div>
+	<script>
+	var tabs = document.getElementById('tabs-title').getElementsByTagName('li');
+	for (var i = 0; i < tabs.length; i++) {
+		tabs[i].onclick = (function (i) {
+			return function () {
+				if(this.className.indexOf('active') !== -1) return;
+				setTab('tab', i, tabs.length)
+			}
+		})(i + 1)
+	}
+	function setTab(name,cursel,n){
+	 for(var i = 1;i<=n;i++){
+	  var menu=document.getElementById(name+i);
+	  var con=document.getElementById(name+"_con_"+ i);
+	  if (i === cursel) {
+	    menu.className += " active";
+	    con.className += " tab-con-show";	
+	  } else {
+	  	menu.className = menu.className.replace(/active/g, '');
+	  	con.className = con.className.replace(/tab-con-show/g, '');
+	  };
+	 }
+	}
+	</script>
+</body>
+</html>

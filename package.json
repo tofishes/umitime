@@ -1,0 +1,20 @@
+{
+	"name": "umitime",
+	"description": "umitime for university students' play, eat, dress info.",
+	"version": "0.0.1",
+	"author": "ToFishes",
+	"private": true,
+	"dependencies": {
+		"express": "3.2.3",
+		"mongoose": "3.6.11",
+		"mongoskin": "*",
+		"async": "0.2.8",
+		"jade": "*",
+		"ejs": "*",
+		"connect-domain": "*"
+	},
+
+	"routes_path": "routes",
+	"views_path": "views",
+	"init": "init.js"
+}
