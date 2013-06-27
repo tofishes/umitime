@@ -7,3 +7,5 @@ localStorage
 web video
 
 websocket
+
+Desktop Notification
